@@ -6,3 +6,15 @@
   -- una volta che il count down arriva a 0 svuoto le box e do la possibiltà all'utente di inserici i numeri che ha memorizzato
 4 -- una volta confermate le selezioni mostro all'utente un messaggio con i numeri che è riuscito a memorizzare correttamente
 */
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+const randomNumbers = []
+for (let i = 0; i < 5; i++) {
+    randomNumbers.push(getRndInteger(1, 99))
+}
+
+
+
