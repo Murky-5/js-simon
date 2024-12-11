@@ -16,5 +16,14 @@ for (let i = 0; i < 5; i++) {
     randomNumbers.push(getRndInteger(1, 99))
 }
 
+let boxed_numbers = []
+boxed_numbers.push(document.getElementById("check_number"))
+boxed_numbers.push(document.getElementById("check_number1"))
+boxed_numbers.push(document.getElementById("check_number2"))
+boxed_numbers.push(document.getElementById("check_number3"))
+boxed_numbers.push(document.getElementById("check_number4"))
 
 
+for (let i = 0; i < 5; i++) {
+    boxed_numbers[i].value = randomNumbers[i]
+}
