@@ -10,7 +10,7 @@ const countDownElm = document.querySelector(".counter")
 const submitTakerElm = document.getElementById("submit_taker")
 const guessesElm = document.getElementById("guesses")
 
-function getRndInteger(min, max) {
+function randomizer(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
@@ -24,7 +24,11 @@ function getRndInteger(min, max) {
 
 const randomNumbers = []
 for (let i = 0; i < 5; i++) {
-    randomNumbers.push(getRndInteger(1, 99))
+    if (!randomNumbers.includes(randomNumbers[i])) {
+        randomNumbers.push(randomizer(1, 99))
+    } else {
+        i--
+    }
 }
 
 
@@ -40,7 +44,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 
-let countDown = 10
+let countDown = 5
 const stop = setInterval(() => {
     countDown--
     countDownElm.innerHTML = countDown
@@ -63,10 +67,15 @@ submitTakerElm.addEventListener("submit", function(sub) {
         userInput.push(boxed_numbers[i].value)
     }
 
+    let randomChild = randomNumbers
     const withIn = []
-    for (let i = 0; i < userInput.length; i++) {
-        if (randomNumbers.includes(Number(userInput[i]))) {
-            withIn.push(userInput[i])
+    for (let i = 0; i < boxed_numbers.length; i++) {
+        if (randomChild.includes(Number(userInput[i]))) {
+            if (!withIn.includes(Number(userInput[i]))) {
+                withIn.push(Number(userInput[i]))
+            } else {
+                withIn.push("\\")
+            }
         } else {
             withIn.push("\\")
         }
