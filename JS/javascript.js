@@ -7,10 +7,20 @@
 4 -- una volta confermate le selezioni mostro all'utente un messaggio con i numeri che è riuscito a memorizzare correttamente
 */
 const countDownElm = document.querySelector(".counter")
+const submitTakerElm = document.getElementById("submit_taker")
+const guessesElm = document.getElementById("guesses")
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
+/* function within (base, check) {
+    resoults = []
+    for (let i = 0; i < base.length; i++) {
+        resoults.push(base.includes(check[i]))      tryed validator
+    }
+    return resoults
+} */
 
 const randomNumbers = []
 for (let i = 0; i < 5; i++) {
@@ -30,16 +40,39 @@ for (let i = 0; i < 5; i++) {
 }
 
 
-let countDown = 1
+let countDown = 10
 const stop = setInterval(() => {
+    countDown--
     countDownElm.innerHTML = countDown
     if (countDown == 0) {
         clearInterval(stop)
+
+    for (let i = 0; i < boxed_numbers.length; i++) {
+        boxed_numbers[i].value = ""
+        boxed_numbers[i].removeAttribute("disabled")
     }
-    countDown--
+    }
+    
 }, 1000)
 
 
+submitTakerElm.addEventListener("submit", function(sub) {
+    sub.preventDefault()
+    const userInput = []
+    for (let i = 0; i < boxed_numbers.length; i++) {
+        userInput.push(boxed_numbers[i].value)
+    }
 
+    const withIn = []
+    for (let i = 0; i < userInput.length; i++) {
+        if (randomNumbers.includes(Number(userInput[i]))) {
+            withIn.push(userInput[i])
+        } else {
+            withIn.push("\\")
+        }
+    }
 
+    console.log(withIn + userInput)
 
+    guessesElm.innerHTML = (`Hai indovinato: ${withIn}`)
+})

@@ -16,27 +16,29 @@
             <h1 class="bold text-center counter">0</h1>
             <h5 class="text-center fw-normal">Inserisci tutti i numeri che ricordi (l'ordine non è importante)</h5>
         </div>
-        <div class="d-flex justify-content-center gap-4">
-        <div class="mt-2">
-            <input type="number" class="random_numbers_input" id="check_number" value="" disabled>
-          </div>
-          <div class="mt-2">
-            <input type="number" class="random_numbers_input" id="check_number1" value="" disabled>
-          </div>
-          <div class="mt-2">
-            <input type="number" class="random_numbers_input" id="check_number2" value="" disabled>
-          </div>
-          <div class="mt-2">
-            <input type="number" class="random_numbers_input" id="check_number3" value="" disabled>
-          </div>
-          <div class="mt-2">
-            <input type="number" class="random_numbers_input" id="check_number4" value="" disabled>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center mt-2">
-            <button type="submit" class="btn btn-primary check_numbers_submit">Conferma</button>
-            <label id="guesses" class="mt-2"></label>
-        </div>
+        <form id="submit_taker">
+          <div class="d-flex justify-content-center gap-4">
+            <div class="mt-2">
+                <input type="number" class="random_numbers_input" id="check_number" value="" disabled>
+              </div>
+              <div class="mt-2">
+                <input type="number" class="random_numbers_input" id="check_number1" value="" disabled>
+              </div>
+              <div class="mt-2">
+                <input type="number" class="random_numbers_input" id="check_number2" value="" disabled>
+              </div>
+              <div class="mt-2">
+                <input type="number" class="random_numbers_input" id="check_number3" value="" disabled>
+              </div>
+              <div class="mt-2">
+                <input type="number" class="random_numbers_input" id="check_number4" value="" disabled>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button type="submit" class="btn btn-primary check_numbers_submit">Conferma</button>
+            </div>
+            <label id="guesses" class="mt-2 d-flex justify-content-center"></label>
+        </form>
             <script src="./JS/javascript.js"></script>
 </body>
 </html>
